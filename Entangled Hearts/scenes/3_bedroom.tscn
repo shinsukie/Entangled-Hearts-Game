@@ -1,0 +1,313 @@
+[gd_scene load_steps=24 format=3 uid="uid://jx170hp4cmo6"]
+
+[ext_resource type="Texture2D" uid="uid://o3r8yspnqe2h" path="res://scenes/Balay ni Vergil.png" id="1_0va5d"]
+[ext_resource type="Script" path="res://scenes/3_bedroom.gd" id="1_2dw2u"]
+[ext_resource type="Script" path="res://scenes/vergil.gd" id="1_3pn20"]
+[ext_resource type="Texture2D" uid="uid://efbw414vo71i" path="res://scenes/bedroom.jpg" id="1_pvd63"]
+[ext_resource type="Texture2D" uid="uid://dcsuatqqv5uye" path="res://scenes/462576031_1242588887009394_5415989783111496957_n-removebg-preview.png" id="4_uesk1"]
+[ext_resource type="Texture2D" uid="uid://c457f44y7u6gu" path="res://scenes/462581802_955849223125265_3738072328601283112_n-removebg-preview.png" id="5_7cj2y"]
+[ext_resource type="FontFile" uid="uid://5msocy7524rm" path="res://scenes/Beanstalk.ttf" id="7_dl8hq"]
+[ext_resource type="AudioStream" uid="uid://cm1kckgknfcnc" path="res://scenes/Morning.mp3" id="7_hii63"]
+[ext_resource type="Texture2D" uid="uid://bormal6y5ousq" path="res://scenes/pause.png" id="9_i3et5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ldc0"]
+texture = ExtResource("1_pvd63")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6j4y0"]
+radius = 11.4322
+height = 183.809
+
+[sub_resource type="Animation" id="Animation_w4nsv"]
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_7vuo0"]
+resource_name = "idle_side"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_6jd65"]
+resource_name = "walk_side"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.16667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [4, 5, 6, 7, 8, 9, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4rpe6"]
+_data = {
+"RESET": SubResource("Animation_w4nsv"),
+"idle_side": SubResource("Animation_7vuo0"),
+"walk_side": SubResource("Animation_6jd65")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5sw0j"]
+size = Vector2(73.5, 486)
+
+[sub_resource type="Animation" id="Animation_cvt8h"]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_a7eu4"]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_mh4jd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2hdtb"]
+_data = {
+"FadeIn": SubResource("Animation_cvt8h"),
+"FadeOut": SubResource("Animation_a7eu4"),
+"RESET": SubResource("Animation_mh4jd")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_erj8a"]
+size = Vector2(153, 166)
+
+[sub_resource type="GDScript" id="GDScript_dq75r"]
+script/source = "extends Sprite2D
+
+var player_in_area = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if player_in_area:
+		Dialogic.start(\"res://Dialogue/vergil_31.dtl\")
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.has_method(\"player\"):
+		Dialogic.start(\"res://Dialogue/vergil_31.dtl\")
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.has_method(\"player\"):
+		player_in_area = false
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0b15"]
+size = Vector2(77, 507)
+
+[node name="3Bedroom" type="Node2D"]
+script = ExtResource("1_2dw2u")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -1.0
+offset_top = -3.0
+offset_right = 1153.0
+offset_bottom = 652.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_5ldc0")
+metadata/_edit_use_anchors_ = true
+
+[node name="Vergil" type="CharacterBody2D" parent="."]
+position = Vector2(741, 280)
+scale = Vector2(3.149, 3.014)
+script = ExtResource("1_3pn20")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vergil"]
+position = Vector2(0.317561, -10.6171)
+shape = SubResource("CapsuleShape2D_6j4y0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Vergil"]
+position = Vector2(4.44586, -4.64499)
+scale = Vector2(1, 1.00625)
+texture = ExtResource("1_0va5d")
+offset = Vector2(-6.03314, 41.2458)
+hframes = 4
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Vergil"]
+libraries = {
+"": SubResource("AnimationLibrary_4rpe6")
+}
+speed_scale = 0.7
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(28, 296)
+shape = SubResource("RectangleShape2D_5sw0j")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(845, 333)
+shape = SubResource("RectangleShape2D_5sw0j")
+
+[node name="46257603112425888870093945415989783111496957N-removebg-preview" type="Sprite2D" parent="."]
+position = Vector2(161.875, 547.5)
+scale = Vector2(0.589122, 0.453947)
+texture = ExtResource("4_uesk1")
+
+[node name="Transition" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2hdtb")
+}
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+anchors_preset = -1
+anchor_left = -0.0694444
+anchor_top = -0.118827
+anchor_right = 1.03385
+anchor_bottom = 1.37037
+offset_left = -611.0
+offset_top = -483.0
+offset_right = 559.0
+offset_bottom = 179.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Bulingon" type="Area2D" parent="."]
+position = Vector2(21, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bulingon"]
+position = Vector2(510.5, 515)
+shape = SubResource("RectangleShape2D_erj8a")
+
+[node name="4625818029558492231252653738072328601283112N-removebg-preview" type="Sprite2D" parent="Bulingon"]
+position = Vector2(501, 517.75)
+scale = Vector2(0.768, 0.819)
+texture = ExtResource("5_7cj2y")
+script = SubResource("GDScript_dq75r")
+
+[node name="to_school" type="Area2D" parent="."]
+position = Vector2(28, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to_school"]
+position = Vector2(81, 298)
+shape = SubResource("RectangleShape2D_p0b15")
+
+[node name="Label" type="Label" parent="to_school"]
+offset_left = 52.0
+offset_top = 132.0
+offset_right = 303.0
+offset_bottom = 165.0
+theme_override_fonts/font = ExtResource("7_dl8hq")
+theme_override_font_sizes/font_size = 34
+text = "< < < Get Ready to School"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_hii63")
+autoplay = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = -4.0
+offset_top = -5.0
+offset_right = 46.0
+offset_bottom = 51.0
+icon = ExtResource("9_i3et5")
+expand_icon = true
+
+[connection signal="body_entered" from="Bulingon" to="Vergil" method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="to_school" to="Vergil" method="_on_to_school_area_entered"]
+[connection signal="area_shape_entered" from="to_school" to="Vergil" method="_on_to_school_area_shape_entered"]
+[connection signal="body_entered" from="to_school" to="." method="_on_to_school_body_entered"]
+[connection signal="body_entered" from="to_school" to="Vergil" method="_on_to_school_body_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

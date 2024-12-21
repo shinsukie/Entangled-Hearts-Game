@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=8 format=3 uid="uid://dvetrjli8sfv0"]
+
+[ext_resource type="PackedScene" uid="uid://syki6k0e6aac" path="res://addons/dialogic/Modules/DefaultLayoutParts/Base_TextBubble/text_bubble_base.tscn" id="1_lghv3"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_2pd2l"]
+[ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="3_hiikl"]
+[ext_resource type="PackedScene" uid="uid://d2it0xiap3gnt" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Textbubble/text_bubble_layer.tscn" id="4_xexbn"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="5_umnw8"]
+
+[sub_resource type="Resource" id="Resource_4qytn"]
+script = ExtResource("2_2pd2l")
+scene = ExtResource("3_hiikl")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_e23bw"]
+script = ExtResource("2_2pd2l")
+scene = ExtResource("4_xexbn")
+overrides = {
+"behaviour_direction": "Vector2(1, -4)",
+"behaviour_distance": "100.0",
+"bold_font": "\"res://scenes/Beanstalk.ttf\"",
+"bold_italic_font": "\"res://scenes/Beanstalk.ttf\"",
+"box_modulate": "Color(0, 0, 0, 0.45098)",
+"box_wobble_amount": "0.0",
+"box_wobble_detail": "0.0",
+"box_wobble_speed": "2.0",
+"italic_font": "\"res://scenes/Beanstalk.ttf\"",
+"name_label_box_modulate": "Color(1, 1, 1, 0)",
+"name_label_color": "Color(0, 0, 0, 0)",
+"name_label_font_size": "0.0",
+"name_label_use_character_color": "false",
+"normal_font": "\"res://scenes/Beanstalk.ttf\"",
+"text_color": "Color(1, 1, 1, 1)",
+"text_size": "30.0"
+}
+
+[resource]
+script = ExtResource("5_umnw8")
+name = "custom_dialogue"
+base_scene = ExtResource("1_lghv3")
+base_overrides = {}
+layers = Array[ExtResource("2_2pd2l")]([SubResource("Resource_4qytn"), SubResource("Resource_e23bw")])
+metadata/_latest_layer = 1
